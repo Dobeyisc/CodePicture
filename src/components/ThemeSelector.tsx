@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import { useState } from "react";
 import { themes } from "../utils/utilities";
 import OutsideClickHandler from "react-outside-click-handler";
 
@@ -9,7 +9,7 @@ interface ThemeSelectorProps {
 }
 
 function ThemeSelector({ theme, setTheme }: ThemeSelectorProps) {
-  const [showDropdown, setShowDropdown] = React.useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -22,7 +22,7 @@ function ThemeSelector({ theme, setTheme }: ThemeSelectorProps) {
   return (
     <OutsideClickHandler onOutsideClick={() => setShowDropdown(false)}>
       <div className="theme-selector" onClick={toggleDropdown}>
-        <p className="py-[5px] text-sm font-medium pointer-events-none">Code Colors</p>
+        <p className="py-1 text-sm font-medium pointer-events-none">Code Colors</p>
         <div className="dropdown-title capitalize w-[120px] hover:text-slate-50 transition-all duration-300 ease-in-out">
           {theme} 
         </div>

@@ -18,13 +18,14 @@ function PaddingSelector({
   return (
     <div>
       <p className="py-[5px] text-sm font-medium">Spacing</p>
-      <div className="flex gap-6">
+      <hr className="py-1"/>
+      <div className="grid grid-cols-2 gap-4">
         {paddings.map((padding, i) => {
           return (
             <button
               key={i}
               onClick={() => changePadding(padding)}
-              className={`h-[37px]  flex items-center justify-center text-sm px-2 cursor-pointer
+               className={`h-10 flex items-center justify-center text-sm px-2 cursor-pointer 
                 ${
                   currentPadding === padding &&
                   "bg-[#3C3C3C] text-white rounded-md"

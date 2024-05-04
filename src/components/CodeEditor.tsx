@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Resizable } from "re-resizable";
 import AceEditor from "react-ace";
 
@@ -34,12 +34,12 @@ function CodeEditor({
   background,
   currentPadding,
 }: CodeEditorProps) {
-  const [width, setWidth] = React.useState(1000);
-  const [height, setHeight] = React.useState<number | null>(500);
-  const [title, setTitle] = React.useState("App");
-  const [code, setCode] = React.useState(initialCode);
+  const [width, setWidth] = useState(1000);
+  const [height, setHeight] = useState<number | null>(500);
+  const [title, setTitle] = useState("App");
+  const [code, setCode] = useState(initialCode);
 
-  const [extension, setExtension] = React.useState(".js");
+  const [extension, setExtension] = useState(".js");
 
   useEffect(() => {
     // Update the extension when the language changes
@@ -77,9 +77,9 @@ function CodeEditor({
       minHeight={466}
       maxHeight={500}
       minWidth={510}
-      maxWidth={900}
+      maxWidth={700}
       defaultSize={{
-        width: width,
+        width: 700,
         height: height || 500,
       }}
       onResize={handleResize}

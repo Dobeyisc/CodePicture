@@ -19,11 +19,8 @@ function App() {
   const [currentPadding, setCurrentPadding] = useState(paddings[3]);
 
   return (
-    <main>
-      <header
-        className="flex gap-6 w-[870px] p-5 fixed top-0 left-1/2 translate-x-[-50%]
-      z-10 bg-[#191919] rounded border border-[#3C3C3C] shadow-md"
-      >
+    <div id="container" className="relative h-screen p-1 gap-1">
+      <aside className="[grid-area:aside] flex-col flex justify-evenly overflow-y-auto rounded-lg bg-zinc-900 text-start px-2 py-2 ">
         <ThemeSelector theme={theme} setTheme={setTheme} />
         <LanguageSelector
           language={language}
@@ -32,22 +29,27 @@ function App() {
         />
         <BackgroundSelector
           background={background}
-          setBackground={setBackground}
+          currentBackground={background}
+          setCurrentBackground={setBackground}
         />
         <PaddingSelector
           paddings={paddings}
           currentPadding={currentPadding}
           setCurrentPadding={setCurrentPadding}
         />
-        <div className="self-center ml-auto">
-          <button className="flex items-center gap-3 py-2 px-3 bg-blue-400 rounded-md text-sm text-blue-400 
+        <div className="self-start">
+          <button
+            className="flex items-center gap-3 py-2 px-3 bg-blue-400 rounded-md text-sm text-blue-400 
           font-medium bg-opacity-10 hover:bg-opacity-80 hover:text-slate-50 ease-in-out transition-all 
-          duration-300">
-            <IoMdDownload />  Export png
+          duration-300"
+            
+          >
+            <IoMdDownload /> Export png
           </button>
         </div>
-      </header>
-      <div className="mt-40 flex items-center justify-center">
+      </aside>
+
+      <main className="[grid-area:main] rounded-lg bg-zinc-900 overflow-y-auto w-full flex justify-center items-center">
         <CodeEditor
           language={language}
           theme={theme}
@@ -55,8 +57,8 @@ function App() {
           icon={activeIcon}
           currentPadding={currentPadding}
         />
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
 

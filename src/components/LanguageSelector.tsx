@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-
+import { useState } from "react";
 import { languages } from "../utils/utilities";
 import OutsideClickHandler from "react-outside-click-handler";
 
@@ -15,7 +14,7 @@ function LanguageSelector({
   setLanguage,
   seActiveIcon,
 }: LanguageSelectorProps) {
-  const [showDropdown, setShowDropdown] = React.useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -35,8 +34,8 @@ function LanguageSelector({
   return (
     <OutsideClickHandler onOutsideClick={() => setShowDropdown(false)}>
       <div onClick={toggleDropdown}>
-        <p className="py-[5px] text-sm font-medium">Language</p>
-        <div className="dropdown-title capitalize w-[120px] hover:text-slate-50 transition-all duration-300 ease-in-out">
+        <p className="py-1 text-sm font-medium">Language</p>
+        <div className="dropdown-title capitalize hover:text-slate-50 transition-all duration-300 ease-in-out">
           {language}
 
         </div>
