@@ -56,10 +56,11 @@ function CodeEditor({
     setTitle(newTitle);
   };
 
-  // @ts-ignore
-  const handleResize = (evt, direction, ref, pos) => {
+  const handleResize = (ref) => {
+    if (ref.current) {
     const newHeight = ref.style.height;
     setHeight(parseInt(newHeight, 10));
+    }
   };
 
   const updateSize = () => {
@@ -79,7 +80,7 @@ function CodeEditor({
       minWidth={510}
       maxWidth={700}
       defaultSize={{
-        width: 700,
+        width: width || 700,
         height: height || 500,
       }}
       onResize={handleResize}
@@ -113,7 +114,7 @@ function CodeEditor({
 
         <div
           className="
-            code-title h-[52px] px-4 flex items-center justify-between
+            code_title h-[52px] px-4 flex items-center justify-between
             bg-black bg-opacity-80"
         >
           <div className="dots flex items-center gap-1">
